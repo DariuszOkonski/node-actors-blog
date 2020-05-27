@@ -35,7 +35,13 @@ router.get('/actors/:id', (req, res) => {
 });
 
 router.post('/actors', (req, res) => {
-    res.send('POST');
-})
+    Actor.create(req.body.actor, (err) => {
+        if(err) {
+            res.redirect('back');
+        } else {
+            res.redirect('/actors')
+        }
+    })
+});
 
 module.exports = router;

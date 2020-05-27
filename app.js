@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser');
 const Actor = require('./models/actor');
 
 const indexRouter = require('./routes/actors/index');
@@ -8,6 +9,10 @@ const mongoConnection = require('./models/connection');
 mongoConnection();
 
 app.use(express.static('public'));
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+app.use(bodyParser.json());
 app.set('view engine', 'ejs');
 
 app.use(indexRouter);

@@ -1,10 +1,13 @@
 body {
     width: 100%;
     min-height: 100vh;
+    padding-top: 4rem;
 }
 
 .landing {
-    padding-top: 4rem;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     min-height: 100vh;
     background-color: grey;

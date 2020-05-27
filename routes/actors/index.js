@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router({mergeParams: true});
+const expressSanitizer = require('express-sanitizer');
 const Actor = require('../../models/actor');
+
+router.use(expressSanitizer());
 
 router.get('/', (req, res) => {
     res.render('landing');
@@ -39,7 +42,16 @@ router.get('/actors/:id', (req, res) => {
 });
 
 router.post('/actors', (req, res) => {
-    Actor.create(req.body.actor, (err) => {
+    const newActor = {
+        name: req.sanitize(req.body.actor.name),
+        surname: req.sanitize(req.body.actor.surname),
+        country: req.sanitize(req.body.actor.country),
+        picture: req.sanitize(req.body.actor.picture),
+        description: req.sanitize(req.body.actor.description)
+    }
+    console.log(newActor);
+
+    Actor.create(newActor, (err) => {
         if(err) {
             res.redirect('back');
         } else {

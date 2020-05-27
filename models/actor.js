@@ -5,6 +5,7 @@ const actorSchema = new mongoose.Schema({
     surname: String, 
     country: String, 
     picture: String,
+    description: String,
     created: {
         type: Date,
         default: Date.now

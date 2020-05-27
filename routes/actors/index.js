@@ -9,22 +9,25 @@ router.get('/', (req, res) => {
 router.get('/actors', (req, res) => {
     Actor.find({}, (err, foundActors) => {
         if(err) {
-            console.log('ERROR')
+            res.redirect('back');
         } else {
             res.render('actors/index', {
                 actors: foundActors
             });
         }
-    })
-
-
-
+    });
 });
 
 router.get('/actors/:id', (req, res) => {
-    console.log(req.params.id);
-
-    res.send('Show page');
+    Actor.findById(req.params.id, (err, foundActor) => {
+        if(err) {
+            res.redirect('back');
+        } else {
+            res.render('actors/show', {
+                actor: foundActor
+            });            
+        }
+    });
 })
 
 module.exports = router;

@@ -1,7 +1,28 @@
 <%- include('../partials/header.ejs') %>
 
 <div class="container">
-    <h1 class="display-4">RESTful Actors App</h1>
+    <h1 class="display-4">RESTful Actor App</h1>
+
+    <% actors.forEach(actor => { %>
+        <div class="card mb-3">
+            <div class="row no-gutters">
+              <div style="max-width: 200px;" class="col-md-4">
+                <img src="<%= actor.picture %>" class="card-img" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">Name: <%= actor.name %></h5>
+                  <h5 class="card-title">Surname: <%= actor.surname %></h5>
+                  <h6 class="card-title">Country: <%= actor.country %></h6>
+                  <button class="btn btn-primary btn-sm">Read More</button>
+                </div>
+              </div>
+            </div>
+          </div>
+    <% }) %>
+
+
+
 </div>
 
 <%- include('../partials/footer.ejs') %>

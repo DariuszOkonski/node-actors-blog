@@ -6,6 +6,10 @@ router.get('/', (req, res) => {
     res.render('landing');
 });
 
+router.get('/about', (req, res) => {
+    res.render('about');
+})
+
 router.get('/actors', (req, res) => {
     Actor.find({}, (err, foundActors) => {
         if(err) {

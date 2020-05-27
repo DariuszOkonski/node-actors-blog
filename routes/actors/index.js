@@ -18,6 +18,10 @@ router.get('/actors', (req, res) => {
     });
 });
 
+router.get('/actors/new', (req, res) => {
+    res.render('actors/new');
+})
+
 router.get('/actors/:id', (req, res) => {
     Actor.findById(req.params.id, (err, foundActor) => {
         if(err) {
@@ -28,6 +32,10 @@ router.get('/actors/:id', (req, res) => {
             });            
         }
     });
+});
+
+router.post('/actors', (req, res) => {
+    res.send('POST');
 })
 
 module.exports = router;

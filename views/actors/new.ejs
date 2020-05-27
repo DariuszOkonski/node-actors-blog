@@ -1,0 +1,59 @@
+<%- include('../partials/header.ejs') %>
+
+<div class="container">
+    <h1 class="display-4">Add New Actor</h1>
+
+    <form action="/actors" method="POST">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" 
+            class="form-control" 
+            id="name" name="actor[name]" 
+            placeholder="Enter actor's name..." 
+            >
+        </div>
+        <div class="form-group">
+            <label for="surname">Surname</label>
+            <input type="text" 
+                class="form-control" 
+                id="surname" 
+                name="actor[surname]" 
+                placeholder="Enter actor's surname..." 
+                >
+        </div>
+        <div class="form-group">
+            <label for="country">Country</label>
+            <input type="text" 
+                class="form-control" 
+                id="country" 
+                name="actor[country]" 
+                placeholder="Enter actor's country of living..." 
+                >
+        </div>
+        <div class="form-group">
+            <label for="picture">Picture</label>
+            <input type="text" 
+                class="form-control" 
+                id="picture" 
+                name="actor[picture]" 
+                placeholder="Enter actor's picture link..." 
+                >
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea class="form-control" 
+                name="actor[description]" 
+                id="description" 
+                cols="30" rows="10" p
+                laceholder="Enter actor's description"></textarea>
+        </div>
+
+        <div class="form-group">
+            <a href="/actors" class="btn btn-primary btn-sm">Back</a>
+            <input type="submit" value="Add New Actor" class="btn btn-success btn-sm">
+        </div>
+      </form>
+
+</div>
+
+<%- include('../partials/footer.ejs') %>

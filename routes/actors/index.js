@@ -49,7 +49,6 @@ router.post('/actors', (req, res) => {
         picture: req.sanitize(req.body.actor.picture),
         description: req.sanitize(req.body.actor.description)
     }
-    console.log(newActor);
 
     Actor.create(newActor, (err) => {
         if(err) {

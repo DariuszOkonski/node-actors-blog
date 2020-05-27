@@ -14,15 +14,12 @@
                   <h5 class="card-title">Name: <%= actor.name %></h5>
                   <h5 class="card-title">Surname: <%= actor.surname %></h5>
                   <h6 class="card-title">Country: <%= actor.country %></h6>
-                  <button class="btn btn-primary btn-sm">Read More</button>
+                  <a href="/actors/<%= actor._id %>" class="btn btn-primary btn-sm">Read More</a>
                 </div>
               </div>
             </div>
           </div>
     <% }) %>
-
-
-
 </div>
 
 <%- include('../partials/footer.ejs') %>
